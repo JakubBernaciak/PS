@@ -14,10 +14,8 @@ def load_licences():
             for item in json_data:
                 licences.append(
                     Licence(item["LicenceUserName"],
-                    int(item["Licence"]),
                     int(item["ValidationTime"]),
-                    item["IPadresses"]
-                    )
+                    item["LicenceKey"])
                 )
     except FileNotFoundError:
         print("Licenses file not found.")
@@ -29,6 +27,6 @@ def load_licences():
 
 if __name__ == "__main__":
     load_licences()
-    for licence in licences:
-        if licence.number_of_licences > 1:
-            print(licence.ipaddresses[1])
+    for item in licences:
+        print(item.username)
+    
