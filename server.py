@@ -27,6 +27,16 @@ def load_licences():
 
 if __name__ == "__main__":
     load_licences()
-    for item in licences:
-        print(item.username)
+    
+    port_number = 0
+    try:
+        port_number = int(input("Enter the port number:"))
+    except ValueError:
+        print("Port number must be a integer!")
+        exit(1)
+    if not (port_number > 0 and port_number < 65535):
+        print("Invalid port number")
+        exit(1)
+        
+    print(port_number)
     
